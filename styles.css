@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #e2be0a;
+  --text-dark: #0f172a;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: flex;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(9, 24, 29, 0.9), rgba(9, 24, 29, 0.9)),
+    url("assets/bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  top: 0;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+  z-index: 9;
+}
+
+.nav__bar {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: var(--primary-color);
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav__logo img {
+  max-width: 75px;
+}
+
+.nav__logo span {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--white);
+  display: none;
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  list-style: none;
+  position: absolute;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: rgba(9, 24, 29, 0.9);
+  transform: translateY(-100%);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.nav__links.open {
+  transform: translateY(0);
+}
+
+.nav__links a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--white);
+  transition: 0.3s;
+}
+
+.nav__links a:hover {
+  color: var(--primary-color);
+}
+
+.container__grid {
+  position: relative;
+  isolation: isolate;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 2rem 1rem;
+  padding-top: 8rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.bg__1,
+.bg__2,
+.bg__3 {
+  max-width: 150px;
+  position: absolute;
+  z-index: 1;
+}
+
+.bg__1 {
+  top: 0;
+  right: 0;
+}
+
+.bg__2 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bg__3 {
+  bottom: 0;
+  left: 25%;
+}
+
+.container__image > div {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 1;
+  margin: auto;
+  background-image: url("assets/header.jpg");
+  background-position: center center;
+  background-size: cover;
+  -webkit-mask: url("assets/header-bg.png");
+  -webkit-mask-size: cover;
+  -webkit-mask-position: center center;
+}
+
+.container__content {
+  text-align: center;
+}
+
+.container__content h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 5rem;
+  color: var(--primary-color);
+}
+
+.container__content h2 {
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  max-width: 450px;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 3rem;
+  color: var(--white);
+}
+
+.container__content p {
+  margin-inline: auto;
+  margin-bottom: 4rem;
+  max-width: 400px;
+  color: var(--white);
+}
+
+.socials > div {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.socials a {
+  padding: 2px 7px;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  background-color: var(--white);
+  border-radius: 100%;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+.socials span {
+  font-size: 1.1rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+@media (width > 768px) {
+  nav {
+    padding: 2rem 1rem;
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav__bar {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__logo span {
+    display: flex;
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    padding: 0;
+    width: unset;
+    position: static;
+    transform: none;
+    flex-direction: row;
+    background-color: transparent;
+  }
+
+  .container__grid {
+    padding-top: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .container__image {
+    grid-area: 1/2/2/3;
+  }
+
+  .container__content {
+    text-align: left;
+  }
+
+  .container__content :is(h2, p) {
+    margin-inline: unset;
+  }
+
+  .socials > div {
+    justify-content: flex-start;
+  }
+}
