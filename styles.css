@@ -149,9 +149,10 @@ nav {
   background-image: url("assets/header.jpg");
   background-position: center center;
   background-size: cover;
-  -webkit-mask: url("assets/header-bg.png");
-  -webkit-mask-size: cover;
-  -webkit-mask-position: center center;
+  background-repeat: no-repeat;
+  mask: url("assets/header-bg.png");
+  size: cover;
+  position: center center;
 }
 
 .container__content {
